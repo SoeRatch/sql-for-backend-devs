@@ -1,9 +1,10 @@
 -- 04_aggregate_functions.sql
--- Goal: Learn how to use aggregate functions to compute summary statistics over result sets
--- Covers: COUNT, SUM, AVG, MIN, MAX (without GROUP BY)
+-- Goal: Learn how to use aggregate functions like COUNT, SUM, AVG, MIN, and MAX
 
 -- Sample table: employees
--- Columns: id, name, department, job_title, salary, hire_date, email
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
 
 -- 1. Count total number of employees
 SELECT COUNT(*) AS total_employees

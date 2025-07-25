@@ -1,8 +1,10 @@
 -- 01_select_from_where.sql
--- Basic SELECT and WHERE usage
+-- Goal: Learn how to write basic SELECT statements and filter data using WHERE
 
 -- Sample table: employees
--- Columns: id, name, age, department, salary
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
 
 -- 1. Select all employees
 SELECT *

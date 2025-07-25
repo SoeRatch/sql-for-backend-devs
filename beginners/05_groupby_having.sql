@@ -1,9 +1,11 @@
 -- 05_groupby_having.sql
--- Goal: Learn how to group data and filter aggregated results using GROUP BY and HAVING
+-- Goal: Learn how to group records using GROUP BY and filter grouped data using HAVING
 -- Covers: GROUP BY, aggregate functions with grouping, HAVING clause
 
 -- Sample table: employees
--- Columns: id, name, department, job_title, salary, hire_date, email
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
 
 -- 1. Count number of employees in each department
 SELECT department, COUNT(*) AS total_employees

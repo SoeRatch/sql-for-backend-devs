@@ -2,9 +2,13 @@
 -- Goal: Learn how to handle NULL values in queries
 -- Covers: IS NULL, IS NOT NULL, COALESCE, NULLIF
 
--- Sample tables:
--- employees: id, name, department, job_title, salary, hire_date, email, manager_id
--- bonuses: employee_id, bonus, target
+-- Sample table: employees
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
+
+-- Sample table: bonuses
+-- Columns: employee_id, bonus, target
 
 -- 1. Find employees who don’t have a manager
 SELECT name, department

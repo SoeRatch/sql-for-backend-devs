@@ -1,7 +1,10 @@
+-- 03_order_by_limit_offset.sql
 -- Goal: Learn how to sort and paginate query results using ORDER BY, LIMIT, and OFFSET
 
 -- Sample table: employees
--- Columns: id, name, department, salary, hire_date, email
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
 
 -- 1. Sort all employees by salary in ascending order
 SELECT id, name, salary

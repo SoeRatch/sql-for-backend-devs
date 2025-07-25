@@ -1,8 +1,10 @@
--- Goal: Learn how to filter data using different operators in WHERE clause
--- Covers: IN, BETWEEN, LIKE, IS NULL, IS NOT NULL, DISTINCT
+-- 02_filtering_clauses.sql
+-- Goal: Learn how to filter data using IN, BETWEEN, LIKE, IS NULL, and DISTINCT
 
 -- Sample table: employees
--- Columns: id, name, department, salary, hire_date, email
+-- Columns:
+--   id, name, age, department, department_id, job_title,
+--   salary, hire_date, email, manager_id
 
 -- 1. Find employees in either 'Sales', 'HR', or 'Marketing' department
 SELECT *

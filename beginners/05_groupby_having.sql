@@ -5,7 +5,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id
+--   salary, hire_date, email, manager_id, phone
 
 -- 1. Count number of employees in each department
 SELECT department, COUNT(*) AS total_employees

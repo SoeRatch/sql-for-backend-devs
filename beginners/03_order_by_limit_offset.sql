@@ -4,7 +4,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id
+--   salary, hire_date, email, manager_id, phone
 
 -- 1. Sort all employees by salary in ascending order
 SELECT id, name, salary

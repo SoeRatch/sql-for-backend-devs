@@ -4,7 +4,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id, phone, first_name, last_name
+--   salary, hire_date, email, manager_id, phone
 
 -- String functions covered:
 --   - SUBSTRING
@@ -65,13 +65,13 @@ SELECT
   CONCAT(name, ' (', email, ')') AS display_name
 FROM employees;
 
--- 7. Concatenate first and last names with a space in between
--- Uses CONCAT_WS which adds the separator (space here) only between non-null values
+-- 7. Concatenate name and job title with a hyphen in between
+-- Uses CONCAT_WS which adds the separator only between non-null values
 SELECT 
   id,
-  first_name,
-  last_name,
-  CONCAT_WS(' ', first_name, last_name) AS full_name
+  name,
+  job_title,
+  CONCAT_WS(' - ', name, job_title) AS name_with_title
 FROM employees;
 
 -- 8. Find employees whose email starts with 'a' (case-insensitive)

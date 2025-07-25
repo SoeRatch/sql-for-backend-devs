@@ -4,7 +4,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id
+--   salary, hire_date, email, manager_id, phone
 
 -- 1. Rename column output using AS
 SELECT name AS employee_name, salary AS monthly_salary

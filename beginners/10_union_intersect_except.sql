@@ -4,7 +4,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id
+--   salary, hire_date, email, manager_id, phone
 
 -- Table: contractors
 -- Columns: id, name, department_id, hourly_rate

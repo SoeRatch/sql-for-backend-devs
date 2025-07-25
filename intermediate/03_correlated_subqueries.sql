@@ -5,7 +5,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id
+--   salary, hire_date, email, manager_id, phone
 
 
 -- 1. Get employees whose salary is above the average salary in their own department

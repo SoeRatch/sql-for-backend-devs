@@ -4,7 +4,7 @@
 -- Sample table: employees
 -- Columns:
 --   id, name, age, department, department_id, job_title,
---   salary, hire_date, email, manager_id, phone, first_name, last_name
+--   salary, hire_date, email, manager_id, phone
 
 -- Functions covered:
 --   CURRENT_DATE, CURRENT_TIMESTAMP, AGE, EXTRACT, DATE_TRUNC,

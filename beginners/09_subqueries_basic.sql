@@ -1,3 +1,4 @@
+-- 09_subqueries_basic.sql
 -- Goal: Learn how to use basic subqueries in SELECT, FROM and WHERE clauses
 -- Note: These are non-correlated subqueries — they are self-contained and do not reference the outer query
 

@@ -1,61 +1,70 @@
-# SQL for Backend Developers
+# 🧠 SQL for Backend Developers
 
-A complete SQL resource tailored for backend engineers.
+A comprehensive SQL resource crafted specifically for backend engineers.
 
-This repository helps you learn and apply SQL in the context of backend systems — going beyond just writing queries to understanding schema design, query optimization, and real-world data modeling.
-
----
-
-## 📌 Table of Contents
-
-### 🎯 Core Learning Tracks
-- [`/beginner/`](./beginner) — SQL fundamentals, syntax, and query basics
-- [`/intermediate/`](./intermediate) — Aggregations, joins, window functions, CTEs
-- [`/advanced/`](./advanced) — Query tuning, indexes, partitioning, design-oriented SQL
-
-### 📐 System Design Focused SQL
-- [`/schema-design/`](./schema-design) — Modeling relational schemas for real-world applications
-- [`/case-studies/`](./case-studies) — Real-life SQL problems and solutions from backend projects
-
-### 📹 YouTube Playlists (Coming Soon)
-- **SQL for Backend Developers (Beginner to Advanced)** — Hands-on SQL + Schema Design
-- **Schema & Case Study Series** — How real backend systems use SQL effectively
+This repository goes beyond just writing queries — it teaches you **how SQL works in real backend systems**, with a focus on schema design, performance tuning, and real-world data modeling. Whether you're preparing for interviews or scaling a production system, this repo has you covered.
 
 ---
 
-## 🔍 What's Covered?
+## 📚 Learning Tracks
 
-### 🟢 Beginner
-- SELECT, WHERE, ORDER BY, LIMIT
-- DISTINCT, BETWEEN, LIKE, IN, NULLs
-- Basic JOINs, GROUP BY, HAVING
-- Aliases, COALESCE, OFFSET
+### 🟢 [`/beginner/`](./beginner)
+Fundamentals of SQL syntax and querying:
+- SELECT, WHERE, ORDER BY, LIMIT, OFFSET
+- Filtering (`IN`, `BETWEEN`, `LIKE`, `NULL`)
+- Aggregates & `GROUP BY` / `HAVING`
+- Joins (INNER, LEFT), CASE WHEN, basic subqueries
+- Combining results with `UNION`, basic math functions
 
-### 🟡 Intermediate
-- Subqueries, nested SELECTs
-- Conditional Aggregation (CASE WHEN)
-- Self joins, CTEs, window functions (ROW_NUMBER, DENSE_RANK)
-- LEAD, LAG, UNION/UNION ALL
+### 🟡 [`/intermediate/`](./intermediate)
+Core SQL for application logic and reporting:
+- Advanced joins (RIGHT, FULL, CROSS, SELF)
+- Subqueries: correlated vs non-correlated
+- CTEs (Common Table Expressions)
+- Conditional aggregation & filtering
+- Date & string functions
+- Window functions: `ROW_NUMBER`, `RANK`, `LAG`, `LEAD`
+- Type casting, NULL behavior, indexing
+- Refactoring anti-patterns, performance pitfalls
 
-### 🔴 Advanced
-- Anti-patterns (NOT IN with NULLs), EXISTS
-- Query optimization, indexing strategies
-- EXPLAIN plans, materialized views
-- Partitioned tables, clustered vs non-clustered indexes
-- Transaction isolation levels, locking
-- Design-oriented SQL decisions
+### 🔴 [`/advanced/`](./advanced) *(Coming Soon)*
+Deep dive into performance tuning, optimization, and system design:
+- Query execution plans & optimization strategies
+- Indexing, partitioning, clustering
+- Materialized views, denormalization
+- SQL in distributed systems
+- Locking, concurrency, isolation levels
+- Writing scalable, maintainable queries in real systems
 
 ---
 
-## 💻 Who is this for?
-- Backend developers preparing for interviews (FAANG/MAANG-ready)
-- Engineers designing real-world systems
-- Devs improving SQL performance in large-scale apps
+## 🏗️ System Design-Oriented SQL
+
+### [`/schema-design/`](./schema-design)
+How to design normalized, scalable, and flexible relational schemas that power real applications.
+
+### [`/case-studies/`](./case-studies)
+Hands-on SQL problems from actual backend systems — how to approach, analyze, and optimize queries for production.
 
 ---
 
-## 📢 Contributing
-Pull requests, suggestions, and issue reports are welcome!
+## 🎥 YouTube Playlists *(Coming Soon)*
+- **SQL for Backend Developers (Beginner → Advanced)**  
+  Hands-on walkthroughs with whiteboard + SQL code
+- **Schema & Case Study Series**  
+  Real-world SQL breakdowns for backend engineering use cases
+
+---
+
+## 🧑‍💻 Who Should Use This?
+- Backend developers preparing for system design and SQL interviews (MAANG/FAANG-level)
+- Engineers building SQL-heavy services and optimizing performance
+- Developers transitioning into data-intensive backend roles
+
+---
+
+## 🤝 Contributing
+Suggestions, PRs, and discussions are welcome. Let’s make backend SQL a superpower.
 
 ---
 

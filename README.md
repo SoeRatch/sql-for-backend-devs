@@ -1,4 +1,4 @@
-# 🧠 SQL for Backend Developers
+#  SQL for Backend Developers
 
 A comprehensive SQL resource crafted specifically for backend engineers.
 
@@ -8,7 +8,7 @@ This repository goes beyond just writing queries — it teaches you **how SQL wo
 
 ## 📚 Learning Tracks
 
-### 🟢 [`/beginner/`](./beginner)
+###  [`/beginner/`](./beginner)
 Fundamentals of SQL syntax and querying:
 - SELECT, WHERE, ORDER BY, LIMIT, OFFSET
 - Filtering (`IN`, `BETWEEN`, `LIKE`, `NULL`)
@@ -16,7 +16,7 @@ Fundamentals of SQL syntax and querying:
 - Joins (INNER, LEFT), CASE WHEN, basic subqueries
 - Combining results with `UNION`, basic math functions
 
-### 🟡 [`/intermediate/`](./intermediate)
+###  [`/intermediate/`](./intermediate)
 Core SQL for application logic and reporting:
 - Advanced joins (RIGHT, FULL, CROSS, SELF)
 - Subqueries: correlated vs non-correlated
@@ -27,7 +27,7 @@ Core SQL for application logic and reporting:
 - Type casting, NULL behavior, indexing
 - Refactoring anti-patterns, performance pitfalls
 
-### 🔴 [`/advanced/`](./advanced) *(Coming Soon)*
+###  [`/advanced/`](./advanced) *(Coming Soon)*
 Deep dive into performance tuning, optimization, and system design:
 - Query execution plans & optimization strategies
 - Indexing, partitioning, clustering
@@ -45,14 +45,6 @@ How to design normalized, scalable, and flexible relational schemas that power r
 
 ### [`/case-studies/`](./case-studies)
 Hands-on SQL problems from actual backend systems — how to approach, analyze, and optimize queries for production.
-
----
-
-## 🎥 YouTube Playlists *(Coming Soon)*
-- **SQL for Backend Developers (Beginner → Advanced)**  
-  Hands-on walkthroughs with whiteboard + SQL code
-- **Schema & Case Study Series**  
-  Real-world SQL breakdowns for backend engineering use cases
 
 ---
 

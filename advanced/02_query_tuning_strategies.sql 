@@ -1,0 +1,146 @@
+-- 02_query_tuning_strategies.sql
+-- Strategies for speeding up SQL queries
+-- Concepts: Index tuning, filter pushdown, sort avoidance, covering indexes, composite indexes
+
+/*
+Scenario:
+You have a large `orders` table containing millions of rows. The business frequently queries
+recent orders, searches by customer, and sorts by order date or total amount.
+
+We'll explore how indexes, filter placement, and avoiding unnecessary sorts
+can significantly improve query performance.
+*/
+
+-- ---------------------------------------------------------
+-- Index Tuning: Create indexes on columns used in WHERE / JOIN / ORDER BY
+-- ---------------------------------------------------------
+
+-- Assume the following table structure:
+-- orders(order_id, customer_id, order_date, status, total_amount)
+
+-- BAD: Full table scan if no index on customer_id
+SELECT *
+FROM orders
+WHERE customer_id = 123;
+
+-- GOOD: Create index on customer_id
+-- CREATE INDEX idx_orders_customer_id ON orders(customer_id);
+
+
+-- Indexes also help in JOINs
+-- Make sure both JOIN columns are indexed
+SELECT o.order_id, c.name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'Delhi';
+
+
+-- ---------------------------------------------------------
+-- Filter Pushdown: Apply filters as early as possible
+-- ---------------------------------------------------------
+
+-- BAD: Filtering after JOIN
+-- WHY: JOIN brings more rows into memory before filtering → more I/O and CPU usage
+SELECT *
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_type = 'B2B';
+
+-- GOOD: Filter before the JOIN using subqueries or CTEs
+SELECT *
+FROM (
+    SELECT * FROM customers WHERE customer_type = 'B2B'
+) c
+JOIN orders o ON o.customer_id = c.customer_id;
+
+-- OR using CTE:
+WITH b2b_customers AS (
+    SELECT * FROM customers WHERE customer_type = 'B2B'
+)
+SELECT *
+FROM b2b_customers c
+JOIN orders o ON o.customer_id = c.customer_id;
+
+
+-- ---------------------------------------------------------
+-- Sort Avoidance: Avoid unnecessary ORDER BY
+-- ---------------------------------------------------------
+
+-- BAD: Sorting a large dataset unnecessarily
+SELECT order_id, total_amount
+FROM orders
+ORDER BY total_amount;
+
+-- GOOD: Use ORDER BY only when needed (e.g., pagination)
+-- Also use LIMIT to reduce result size for dashboards, reports, etc.
+SELECT order_id, total_amount
+FROM orders
+ORDER BY total_amount DESC
+LIMIT 20;
+
+
+-- ---------------------------------------------------------
+-- Covering Indexes: Avoid table access when all required data is in the index
+-- ---------------------------------------------------------
+
+-- Covering indexes are powerful for read-heavy queries.
+-- But if they include too many or rarely-used columns,
+-- they can backfire by bloating disk, slowing writes, and hurting performance.
+
+-- A covering index contains all columns used in:
+--   - WHERE / JOIN / ORDER BY → for filtering/sorting
+--   - SELECT → to return data without reading full rows
+
+-- Benefit: Query can be served entirely from the index → no table access → faster reads
+
+-- Example:
+-- Query: SELECT order_id, total_amount FROM orders WHERE customer_id = 123;
+
+-- Index that supports this:
+-- CREATE INDEX idx_order_cover ON orders(customer_id, order_id, total_amount);
+
+-- Explanation:
+-- - customer_id helps filter (WHERE)
+-- - order_id, total_amount are in SELECT
+-- → All data comes from the index → no table lookup → fast query
+
+
+-- ---------------------------------------------------------
+-- Composite Indexes: Index with multiple columns (e.g., status, order_date)
+-- ---------------------------------------------------------
+
+-- Suppose you often filter by `status` and sort by `order_date`
+
+-- Order of columns in a composite index matters
+-- General rule:
+--   - Put the most selective filter column first (one that narrows results most)
+--   - Columns used in sorting or range filters can come second
+
+-- GOOD:
+-- WHERE status = 'SHIPPED' ORDER BY order_date
+-- Index: (status, order_date) → used effectively for both filter and sort
+
+-- BAD:
+-- WHERE status = 'SHIPPED' ORDER BY order_date
+-- Index: (order_date, status) → won't help for filtering
+
+-- Why order matters: In composite indexes, filtering uses the leading column(s) first.
+-- If the first column isn't used in WHERE, the index can't be used effectively.
+
+
+-- ---------------------------------------------------------
+-- Indexing Tradeoffs
+-- ---------------------------------------------------------
+
+-- - Indexes speed up reads but slow down writes (INSERT / UPDATE / DELETE)
+-- - Too many indexes can increase storage and maintenance overhead
+-- - Always use EXPLAIN or EXPLAIN ANALYZE to check if an index is used
+
+
+-- ---------------------------------------------------------
+-- Practice Tasks
+-- ---------------------------------------------------------
+
+-- 1. Add appropriate indexes to support fast retrieval of orders made by a specific customer within the last 7 days.
+-- 2. Compare performance of a JOIN query with and without early filtering using EXPLAIN.
+-- 3. Analyze how ORDER BY with LIMIT behaves with and without indexes.
